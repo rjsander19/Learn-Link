@@ -20,6 +20,7 @@ nav {
   display: flex;
   justify-content: flex-start;
 
+
   a {
     @include white-text-black-bg;
     div {
@@ -39,6 +40,7 @@ div {
       padding: 10px;
       font-size: 1.1em;
       margin: 10px;
+      font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 
       &[type="submit"]:hover {
         @include black-test-white-bg;
@@ -55,13 +57,41 @@ button#delete {
   margin: auto;
   font-size: 1.3em;
   padding: 10px;
+
 }
 
 //images
 
 img {
-  width: 300px;
-  height: 300px;
-  border-radius: 90px;
+  width: 180px;
+  height: 180px;
+  border-radius: 20px;
   object-fit: cover;
+}
+
+.grid-container {
+  display: inline-grid;
+  gap: 50px;
+  background-color: white;
+  width: 220px;
+
+}
+
+
+#logo {
+  width: 190px;
+  height: 70px;
+}
+
+.formTitle {
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  font-size: 18px;
+}
+.formImage {
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  font-size: 18px;
+}
+.formName {
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  font-size: 18px;
 }

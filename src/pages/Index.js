@@ -24,10 +24,12 @@ const Index = (props) => {
 
   const loaded = () => {
     return props.subjects.map((subject) => (
+    <div className="grid-container">
       <div key={subject._id} className="subject">
         <Link to={`/subjects/${subject._id}`}><h1>{subject.name}</h1></Link>
         <img src={subject.image} alt={subject.name} />
         <h3>{subject.title}</h3>
+      </div>
       </div>
     ));
   };
@@ -43,21 +45,24 @@ const Index = (props) => {
           type="text"
           value={newForm.name}
           name="name"
-          placeholder="name"
+          placeholder="NAME"
+          className="formName"
           onChange={handleChange}
         />
         <input
           type="text"
           value={newForm.image}
           name="image"
-          placeholder="image URL"
+          placeholder="IMAGE URL"
+          className="formImage"
           onChange={handleChange}
         />
         <input
           type="text"
           value={newForm.title}
           name="title"
-          placeholder="title"
+          placeholder="TITLE"
+          className="formTitle"
           onChange={handleChange}
         />
         <input type="submit" value="Create Subject" />

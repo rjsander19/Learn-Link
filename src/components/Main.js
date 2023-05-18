@@ -1,4 +1,4 @@
-import {useState} from "react";
+import {useEffect, useState} from "react";
 import { Route, Routes } from "react-router-dom";
 import Index from "../pages/Index";
 import Show from "../pages/Show";
@@ -21,7 +21,6 @@ function Main(props) {
           },
           body: JSON.stringify(subject),
         });
-        getSubjects();
       };
     
 
@@ -33,28 +32,29 @@ function Main(props) {
           },
           body: JSON.stringify(subject),
         });
-        getSubjects();
       }
     
     const deleteSubjects = async id => {
         await fetch(URL + id, {
           method: "DELETE",
         })
-        getSubjects();
       }
 
-
+    useEffect(() => getSubjects, []);
 
     return (
         <main>
-        <Routes>
+            
+            <Routes>
             <Route exact path="/" element={<Index subjects={subjects} createSubjects={createSubjects}/>} />
+            
             <Route path="/subjects/:id" element={<Show subjects={subjects}
             updateSubjects={updateSubjects}
             deleteSubjects={deleteSubjects}
             />} 
-        />
-        </Routes>
+            />
+            </Routes>
+            
         </main>
     );
     }
