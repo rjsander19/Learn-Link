@@ -5,7 +5,7 @@ const Index = (props) => {
   const [newForm, setNewForm] = useState({
     name: "",
     image: '',
-    title: ''
+    description: ''
   })
 
   const handleChange = (event) => {
@@ -18,7 +18,7 @@ const Index = (props) => {
     setNewForm({
         name: "",
         image: '',
-        title: ''
+        description: ''
     })
   }
 
@@ -28,7 +28,7 @@ const Index = (props) => {
       <div key={subject._id} className="subject">
         <Link to={`/subjects/${subject._id}`}><h1>{subject.name}</h1></Link>
         <img src={subject.image} alt={subject.name} />
-        <h3>{subject.title}</h3>
+        <h3>{subject.description}</h3>
       </div>
       </div>
     ));
@@ -59,10 +59,10 @@ const Index = (props) => {
         />
         <input
           type="text"
-          value={newForm.title}
-          name="title"
-          placeholder="TITLE"
-          className="formTitle"
+          value={newForm.description}
+          name="description"
+          placeholder="DESCRIPTION"
+          className="formDescription"
           onChange={handleChange}
         />
         <input type="submit" value="Create Subject" />

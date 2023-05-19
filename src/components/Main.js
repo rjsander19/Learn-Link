@@ -2,6 +2,7 @@ import {useEffect, useState} from "react";
 import { Route, Routes } from "react-router-dom";
 import Index from "../pages/Index";
 import Show from "../pages/Show";
+// import {Navigate} from "react-router-dom"
 
 
 function Main(props) {
@@ -44,19 +45,15 @@ function Main(props) {
 
     return (
         <main>
-            
-            <Routes>
+        <Routes>
             <Route exact path="/" element={<Index subjects={subjects} createSubjects={createSubjects}/>} />
-            
             <Route path="/subjects/:id" element={<Show subjects={subjects}
             updateSubjects={updateSubjects}
             deleteSubjects={deleteSubjects}
             />} 
-            />
-            </Routes>
-            
+        />
+        </Routes>
         </main>
     );
     }
-
 export default Main;

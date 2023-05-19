@@ -1,6 +1,7 @@
 import React from 'react'
 import { useNavigate, useParams } from 'react-router-dom'
 import { useState, useEffect } from 'react'
+import '../Show.scss';
 
 const Show = (props) => {
   const { id } = useParams()
@@ -47,16 +48,22 @@ const Show = (props) => {
   const loaded = () => {
     return (
       <>
+      <div className="show-container">
+
+      <div class="card2">
         <h1>{subject.name}</h1>
-        <h2>{subject.title}</h2>
         <img 
           className="avatar-image" 
           src={subject.image} 
           alt={subject.name} 
         />
-        <h3>{subject.title}</h3>
         <button onClick={handleDelete}>Delete</button>
         <button onClick={handleEdit}>{ isEditing ? 'Cancel Edit' : 'Edit' }</button>
+      </div>
+      <div className="card1">
+        <h3>Description: {subject.description}</h3>
+      </div>
+      </div>
       </>
     );
   };
@@ -87,9 +94,9 @@ const Show = (props) => {
         />
         <input
           type="text"
-          value={editForm.title}
-          name="title"
-          placeholder="title"
+          value={editForm.description}
+          name="description"
+          placeholder="description"
           onChange={handleChange}
         />
         <input type="submit" value="Update Subject" />
