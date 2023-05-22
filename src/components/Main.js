@@ -3,8 +3,6 @@ import { Route, Routes } from "react-router-dom";
 import Index from "../pages/Index";
 import Show from "../pages/Show";
 import Landing from "../pages/Landing";
-// import NewPost from "../pages/NewPost";
-// import {Navigate} from "react-router-dom"
 
 
 function Main(props) {

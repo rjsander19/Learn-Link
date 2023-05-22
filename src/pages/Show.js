@@ -11,16 +11,24 @@ const Show = (props) => {
   
   const subject = subjects ? subjects.find((p) => p._id === id ) : null
 
-  const [ editForm, setEditForm ] = useState(subject)
+  const [ editForm, setEditForm ] = useState({ post: ''})
 
   const [isEditing, setisEditing] = useState(false)
 
+  const [comments, setComments] = useState([]);
 
-  useEffect( () => {
+  useEffect(() => {
     if (subject) {
-      setEditForm(subject)
+      setEditForm(subject);
     }
-  }, [subject] )
+  }, [subject]);
+
+  useEffect(() => {
+    const storedComments = localStorage.getItem('comments');
+    if (storedComments) {
+      setComments(JSON.parse(storedComments));
+    }
+  }, []);
 
 
   const handleChange = (e) => {
@@ -30,7 +38,6 @@ const Show = (props) => {
     })
   }
   
-
   const handleUpdate = (e) => {
     e.preventDefault()
     props.updateSubjects(editForm, subject._id)
@@ -46,16 +53,18 @@ const Show = (props) => {
   }
 
 //Comment section
-  const [comments, setComments] = useState([]);
+  
 
-  const handleCommentSubmit = (e) => {
+const handleCommentSubmit = (e) => {
     e.preventDefault();
     if (editForm.post.trim() !== '') {
-      setComments((prevComments) => [...prevComments, editForm.post]);
+      const newComment = editForm.post.trim();
+      const updatedComments = [...comments, newComment];
+      setComments(updatedComments);
       setEditForm((prevEditForm) => ({ ...prevEditForm, post: '' }));
+      localStorage.setItem('comments', JSON.stringify(updatedComments));
     }
   };
-//
 
   const loaded = () => {
     return (
@@ -132,13 +141,6 @@ const Show = (props) => {
           value={editForm.description}
           name="description"
           placeholder="description"
-          onChange={handleChange}
-        />
-        <input
-          type="text"
-          value={editForm.post}
-          name="post"
-          placeholder="post"
           onChange={handleChange}
         />
         <input type="submit" value="Update Subject" />
