@@ -15,6 +15,7 @@ const Show = (props) => {
 
   const [isEditing, setisEditing] = useState(false)
 
+
   useEffect( () => {
     if (subject) {
       setEditForm(subject)
@@ -39,17 +40,28 @@ const Show = (props) => {
     setisEditing(prevState => !prevState)
   }
 
-
   const handleDelete = () => {
     props.deleteSubjects(subject._id)
-    navigate('/')
+    navigate('/subjects')
   }
+
+//Comment section
+  const [comments, setComments] = useState([]);
+
+  const handleCommentSubmit = (e) => {
+    e.preventDefault();
+    if (editForm.post.trim() !== '') {
+      setComments((prevComments) => [...prevComments, editForm.post]);
+      setEditForm((prevEditForm) => ({ ...prevEditForm, post: '' }));
+    }
+  };
+//
 
   const loaded = () => {
     return (
       <>
       <div className="show-container">
-
+      <div className="card-row">
       <div class="card2">
         <h1>{subject.name}</h1>
         <img 
@@ -64,9 +76,32 @@ const Show = (props) => {
         <h3>Description: {subject.description}</h3>
       </div>
       </div>
+      <div className="card3">
+            <h3>Comments</h3>
+            <div className="comment-box">
+            <div className="comment-list">
+            {comments.map((comment, index) => (
+              <p key={index}>{comment}</p>
+            ))}
+            </div>
+            </div>
+            <form onSubmit={handleCommentSubmit}>
+              <input
+                type="text"
+                value={editForm.post}
+                name="post"
+                placeholder="Add a comment"
+                onChange={handleChange}
+              />
+              <input type="submit" value="Add Comment" />
+            </form>
+          </div>
+        </div>
       </>
     );
   };
+
+
   const loading = () => {
     return <h1>Loading ...</h1>;
   };
@@ -99,11 +134,17 @@ const Show = (props) => {
           placeholder="description"
           onChange={handleChange}
         />
+        <input
+          type="text"
+          value={editForm.post}
+          name="post"
+          placeholder="post"
+          onChange={handleChange}
+        />
         <input type="submit" value="Update Subject" />
       </form>
       }
     </div>
   )
 }
-
-export default Show
+export default Show;

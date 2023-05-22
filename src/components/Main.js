@@ -2,6 +2,8 @@ import {useEffect, useState} from "react";
 import { Route, Routes } from "react-router-dom";
 import Index from "../pages/Index";
 import Show from "../pages/Show";
+import Landing from "../pages/Landing";
+// import NewPost from "../pages/NewPost";
 // import {Navigate} from "react-router-dom"
 
 
@@ -41,17 +43,23 @@ function Main(props) {
         })
       }
 
+
     useEffect(() => getSubjects, []);
 
     return (
         <main>
         <Routes>
-            <Route exact path="/" element={<Index subjects={subjects} createSubjects={createSubjects}/>} />
+
+            <Route exact path="/" element={<Landing subjects={subjects} createSubjects={createSubjects}/>} />
+
+
+            <Route exact path="/subjects" element={<Index subjects={subjects} createSubjects={createSubjects}/>} />
+
             <Route path="/subjects/:id" element={<Show subjects={subjects}
             updateSubjects={updateSubjects}
             deleteSubjects={deleteSubjects}
-            />} 
-        />
+            />} />
+
         </Routes>
         </main>
     );
