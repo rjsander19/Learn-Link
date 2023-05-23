@@ -11,23 +11,11 @@ function Main(props) {
     const URL = "https://learnlink-backend.onrender.com/subjects"
 
 
-const getSubjects = async () => {
-  try {
-    const response = await fetch(URL);
-    if (!response.ok) {
-      throw new Error("Request failed with status: " + response.status);
-    }
-    const data = await response.json();
-    if (Array.isArray(data)) { // Check if the data is an array
+    const getSubjects = async () => {
+      const response = await fetch(URL);
+      const data = await response.json();
       setSubjects(data);
-    } else {
-      console.error("Invalid data format: " + data);
-    }
-  } catch (error) {
-    console.error(error);
-    // Handle the error, such as showing an error message to the user
   }
-};
 
     const createSubjects = async (subject) => {
         await fetch(URL, {
