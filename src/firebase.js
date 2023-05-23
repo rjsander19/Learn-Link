@@ -1,18 +1,22 @@
-import firebase from 'firebase/app';
-import 'firebase/auth';
+// Import the functions you need from the SDKs you need
+import { initializeApp } from "firebase/app";
+import { getAnalytics } from "firebase/analytics";
+// TODO: Add SDKs for Firebase products that you want to use
+// https://firebase.google.com/docs/web/setup#available-libraries
 
 const firebaseConfig = {
-    apiKey: "AIzaSyDUPoWgkY_npLIMj4K3lv6_ZZsCGEm07xY",
-    authDomain: "learnlink-904f8.firebaseapp.com",
-    projectId: "learnlink-904f8",
-    storageBucket: "learnlink-904f8.appspot.com",
-    messagingSenderId: "181613345494",
-    appId: "1:181613345494:web:ce093a6a22bbf802e5a777",
-    measurementId: "G-5FX9WMN4DF"
+    apiKey: "AIzaSyAgLf-pm9dTMV9lPmELs3Fzs7DKwiodQhc",
+    authDomain: "learnlink-f0746.firebaseapp.com",
+    projectId: "learnlink-f0746",
+    storageBucket: "learnlink-f0746.appspot.com",
+    messagingSenderId: "312768904603",
+    appId: "1:312768904603:web:7e8f850f2f750b32f9753e",
+    measurementId: "G-68HSY6RZTQ"
   };
 
-//activate firebase app
-firebase.initializeApp(firebaseConfig);
+// Initialize Firebase
+const app = initializeApp(firebaseConfig);
+const analytics = getAnalytics(app);
 
 const auth = firebase.auth();
 
