@@ -66,6 +66,7 @@ const handleCommentSubmit = (e) => {
       setComments(updatedComments);
       setEditForm((prevEditForm) => ({ ...prevEditForm, post: '' }));
       localStorage.setItem('comments', JSON.stringify(updatedComments));
+      navigate(`/subjects/${subject._id}`);
     }
   };
 
