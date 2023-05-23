@@ -8,7 +8,7 @@ import Landing from "../pages/Landing";
 function Main(props) {
     const [ subjects, setSubjects ] = useState(null)
     // const URL = "http://localhost:4000/subjects/"
-    const URL = "https://learnlink-backend.onrender.com"
+    const URL = "https://learnlink-backend.onrender.com/subjects/"
     const getSubjects = async () => {
         const response = await fetch(URL);
         const data = await response.json();
