@@ -7,7 +7,6 @@ import Landing from "../pages/Landing";
 
 function Main(props) {
     const [ subjects, setSubjects ] = useState(null)
-    // const URL = "http://localhost:4000/subjects/"
     const URL = "https://learnlink-backend.onrender.com/subjects"
 
 
@@ -52,7 +51,6 @@ function Main(props) {
         <Routes>
 
             <Route exact path="/" element={<Landing subjects={subjects} createSubjects={createSubjects}/>} />
-
 
             <Route exact path="/subjects" element={<Index subjects={subjects} createSubjects={createSubjects}/>} />
 
