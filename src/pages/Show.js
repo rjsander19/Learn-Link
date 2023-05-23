@@ -56,17 +56,18 @@ const Show = (props) => {
   
 
 const handleCommentSubmit = (e) => {
-    e.preventDefault();
-    if (editForm.post.trim() !== '') {
-      const newComment = {
-        subjectId: subject._id,
-        editForm.post.trim(),
-      const updatedComments = [...comments, newComment];
-      setComments(updatedComments);
-      setEditForm((prevEditForm) => ({ ...prevEditForm, post: '' }));
-      localStorage.setItem('comments', JSON.stringify(updatedComments));
-    }
-  };
+  e.preventDefault();
+  if (editForm.post.trim() !== '') {
+    const newComment = {
+      subjectId: subject._id, // Add the subject ID to the comment object
+      comment: editForm.post.trim(), // Store the comment message
+    };
+    const updatedComments = [...comments, newComment];
+    setComments(updatedComments);
+    setEditForm((prevEditForm) => ({ ...prevEditForm, post: '' }));
+    localStorage.setItem('comments', JSON.stringify(updatedComments));
+  }
+};
 
   
   const loaded = () => {
