@@ -17,6 +17,8 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const analytics = getAnalytics(app);
 
+firebase.initializeApp(firebaseConfig);
+
 const auth = firebase.auth();
 
 //set up provider
