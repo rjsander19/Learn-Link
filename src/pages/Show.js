@@ -59,8 +59,8 @@ const handleCommentSubmit = (e) => {
   e.preventDefault();
   if (editForm.post.trim() !== '') {
     const newComment = {
-      subjectId: subject._id, // Add the subject ID to the comment object
-      comment: editForm.post.trim(), // Store the comment message
+      subjectId: subject._id,
+      comment: editForm.post.trim(), 
     };
     const updatedComments = [...comments, newComment];
     setComments(updatedComments);
