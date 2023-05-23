@@ -58,7 +58,10 @@ const Show = (props) => {
 const handleCommentSubmit = (e) => {
     e.preventDefault();
     if (editForm.post.trim() !== '') {
-      const newComment = editForm.post.trim();
+      const newComment = {
+        post: editForm.post.trim(),
+        subjectId: subject._id,
+      };
       const updatedComments = [...comments, newComment];
       setComments(updatedComments);
       setEditForm((prevEditForm) => ({ ...prevEditForm, post: '' }));
@@ -66,7 +69,11 @@ const handleCommentSubmit = (e) => {
     }
   };
 
+  
   const loaded = () => {
+    const subjectComments = comments.filter(
+      (comment) => comment.subjectId === subject._id
+    );
     return (
       <>
       <div className="show-container">
