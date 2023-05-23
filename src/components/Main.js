@@ -29,7 +29,7 @@ function Main(props) {
     
 
     const updateSubjects = async (subject, id) => {
-        await fetch(URL + id, {
+        await fetch(`${URL}/${id}`, {
           method: "PUT",
           headers: {
             "Content-Type": "application/json",
@@ -39,7 +39,7 @@ function Main(props) {
       }
     
     const deleteSubjects = async id => {
-        await fetch(URL + id, {
+        await fetch(`${URL}/${id}`, {
           method: "DELETE",
         })
       }
