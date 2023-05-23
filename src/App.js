@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import { auth } from './firebase';
 import './App.css';
 import Header from "./components/Header";
 import Main from "./components/Main";
