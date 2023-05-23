@@ -96,7 +96,7 @@ const handleCommentSubmit = (e) => {
             <h3>Comments</h3>
             <div className="comment-box">
             <div className="comment-list">
-            {comments.map((comment, index) => (
+            {subjectComments.map((comment, index) => (
               <p key={index}>{comment}</p>
             ))}
             </div>
