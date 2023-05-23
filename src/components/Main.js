@@ -43,7 +43,7 @@ function Main(props) {
       }
 
 
-    useEffect(() => getSubjects, []);
+    useEffect(() => getSubjects(), []);
 
     return (
         <main>
