@@ -26,9 +26,10 @@ const Index = (props) => {
     return props.subjects.map((subject) => (
     <div className="grid-container">
       <div key={subject._id} className="subject">
-        <Link to={`/subjects/${subject._id}`}><h1>{subject.name}</h1></Link>
+        <Link to={`/subjects/${subject._id}`}><h1>{subject.name}</h1>
         <img src={subject.image} alt={subject.name} />
         <h3>{subject.description}</h3>
+        </Link>
       </div>
       </div>
     ));
