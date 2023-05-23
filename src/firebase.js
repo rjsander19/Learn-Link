@@ -1,4 +1,4 @@
-import firebase from 'firebase/app';
+import firebase from 'firebase/compat/app';
 import 'firebase/compat/auth';
 import { initializeApp } from 'firebase/app';
 
@@ -12,18 +12,16 @@ const firebaseConfig = {
     measurementId: "G-68HSY6RZTQ"
   };
 
-// Initialize Firebase app using the 'initializeApp' function
-initializeApp(firebaseConfig);
-
-const auth = firebase.auth();
-const provider = new firebase.auth.GoogleAuthProvider();
-
-function login() {
-  return auth.signInWithPopup(provider);
-}
-
-function logout() {
-  return auth.signOut();
-}
-
-export { login, logout, auth };
+  const app = initializeApp(firebaseConfig);
+  const auth = app.auth();
+  const provider = new app.auth.GoogleAuthProvider();
+  
+  function login() {
+    return auth.signInWithPopup(provider);
+  }
+  
+  function logout() {
+    return auth.signOut();
+  }
+  
+  export { login, logout, auth };
