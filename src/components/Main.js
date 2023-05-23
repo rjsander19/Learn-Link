@@ -19,7 +19,7 @@ function Main(props) {
         await fetch(URL, {
           method: "POST",
           headers: {
-            "Content-Type": "Application/json",
+            "Content-Type": "application/json",
           },
           body: JSON.stringify(subject),
         });
@@ -30,7 +30,7 @@ function Main(props) {
         await fetch(URL + id, {
           method: "PUT",
           headers: {
-            "Content-Type": "Application/json",
+            "Content-Type": "application/json",
           },
           body: JSON.stringify(subject),
         });
